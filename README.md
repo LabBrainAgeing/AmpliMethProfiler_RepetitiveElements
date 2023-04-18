@@ -19,8 +19,9 @@ For regions which are particularly rich in unmethylated Cs (both within or outsi
 We noticed that blastn default settings tagged and filtered out bisulfite-converted, unmethylated reads as low-complexity sequences. This resulted in a biased assessment of DNAm profile towards a highly methylated one.
 
 **Usage:** 
+
 We modified Scala's scripts by integrating an additional "--DUST" argument to AmpliMethProfiler base command line which calls bioblast _dust_ property (https://biopython.org/docs/1.76/api/Bio.Blast.Applications.html?highlight=blastn#Bio.Blast.Applications.NcbiblastnCommandline). 
-DUST argument allows a "yes" (default) or "no" format which respectively enable or disable its use.
+DUST argument allows a "yes" (default) or "no". Use the "no" argument to disable its usage.
 
 
 
