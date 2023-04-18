@@ -2,7 +2,8 @@
 AmpliMethProfiler is a bioinformatic tool developed by Scala et al. (10.1186/s12859-016-1380-3) to perform average DNA methylation and epihaplotype analysis on deep targeted-bisulfite sequencing data.
 For installation and usage of base version of AmpliMethProfiler tool please refer to https://sourceforge.net/projects/amplimethprofiler/.
 
-Our group optimized the AmpliMethProfiler tool to perform DNA methylation analysis of DNA Repetitive Elements including LINE-1, Alu and ribosomal DNA repeats. 
+Our group optimized the AmpliMethProfiler tool to perform DNA methylation analysis of Repetitive Elements (RE) including LINE-1, Alu and ribosomal DNA repeats using an Illumina-based, targeted-deep bisulfite sequencing pipeline. Bisulfite conversion of DNA results in the conversion of unmethylated cytosines
+
 
 We modified Scala's scripts by integrating an additional "--DUST" argument to its base command line. DUST is a BLAST module used to mask low-complexity sequences of nucleotide queries (10.1089/cmb.2006.13.1028). 
 
