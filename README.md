@@ -20,13 +20,12 @@ https://github.com/LabBrainAgeing/AmpliMethProfiler_RepetitiveElements/tree/main
 
 2. Set up AmpliMethProfiler environment for your anaconda installation. Guidelines to set up AmpliMethProfiler environment are provided at : https://sourceforge.net/projects/amplimethprofiler/.  
 
-    Alternatively, AmplyMethProfiler environment can be downloaded and installed from anaconda.org
-  - Using web interface, go to https://anaconda.org/ravaioli.cesco/AmpliMethProfilerEnv
-  - Select the environment, go to Files tab and click the file to download it
-  - Install the environment using the terminal:
-
-> conda env create $PWD/AmpliMethProfilerEnv.yml   
-> conda activate AmpliMethProfilerEnv
+    Alternatively, you can :
+> download AmpliMethProfilerEnv.yml
+> install environment
+      conda env create -f $PWD/AmpliMethProfilerEnv.yml   
+> check that everything went well
+      conda activate AmpliMethProfilerEnv
 
 3) Run base AmpliMethProfilerCommand line with DUST module disabled.  
 An example is provided at: https://github.com/LabBrainAgeing/AmpliMethProfiler_RepetitiveElements/blob/main/testData/Amplimeth_command.sh
