@@ -1,31 +1,60 @@
-# AmpliMethProfiler_RepetitiveElements
-AmpliMethProfiler is a bioinformatic tool developed by Scala et al. (10.1186/s12859-016-1380-3) to perform average DNA methylation and epihaplotype analysis on deep targeted-bisulfite sequencing data.
-For installation and usage guidelines of base version of AmpliMethProfiler tool please refer to repository indicated by Scala et al. at: https://sourceforge.net/projects/amplimethprofiler/.
+AmpliMethProfiler for Repetitive Elements
+AmpliMethProfiler is a bioinformatic tool developed by Scala et al. for analyzing average DNA methylation and epihaplotypes from deep targeted bisulfite sequencing data.
 
-Our group optimized the AmpliMethProfiler tool to perform DNA methylation analysis of Repetitive Elements (RE) including LINE-1, Alu and ribosomal DNA repeats using an Illumina-based, targeted-deep bisulfite sequencing pipeline. 
-AmpliMethProfiler's DNA methylation calling is based on the alignment of sequencing reads on a specific reference sequence and the identification of mismatches at the position corresponding to the citosyne in a CpG dinucleotyde motif. Alignment is performed using blastn tool (please refer to Scala et al. manuscript for blastn standard settings) which integrates by default a low-complexity features masking module based on an heuristic algorythm called DUST, described by Morgulis et al. (10.1089/cmb.2006.13.1028).   
+📌 For installation and usage of the base version, please refer to the original repository:
+🔗 https://sourceforge.net/projects/amplimethprofiler/
 
-Bisulfite conversion and subsequent target PCR-amplification of genomic DNA results in the conversion of all unmethylated cytosines (C) into thymines (T). 
-For regions which are particularly rich in unmethylated Cs (both within or outside CpG contex). In genomic regions with high density of individual Cs and unmethylated CpG dinucleotides, bisulfite conversion results in a net reduction of sequence complexity.  
+🔬 About This Fork
+Our group optimized AmpliMethProfiler to analyze DNA methylation in Repetitive Elements (RE) such as:
 
-We noticed that blastn default settings tagged and filtered out bisulfite-converted, unmethylated reads as low-complexity sequences. This resulted in a biased assessment of DNAm profile towards a highly methylated one.  
+LINE-1
 
-We modified Scala's scripts by integrating an additional "--dust" argument to AmpliMethProfiler base command line which calls bioblast _dust_ property (https://biopython.org/docs/1.76/api/Bio.Blast.Applications.html?highlight=blastn#Bio.Blast.Applications.NcbiblastnCommandline).   
-Dust argument allows a "yes" (default) or "no". Use the "no" argument to disable its usage.
+Alu
 
-**Usage:** 
+Ribosomal DNA repeats
 
-1. Download the modified AmpliMethProfiler scripts from:
-https://github.com/LabBrainAgeing/AmpliMethProfiler_RepetitiveElements/tree/main/AmpliMethProfiler.
+This was achieved using an Illumina-based, targeted-deep bisulfite sequencing pipeline.
 
-2. Set up AmpliMethProfiler environment for your anaconda installation. Guidelines to set up AmpliMethProfiler environment are provided at : https://sourceforge.net/projects/amplimethprofiler/.  
+⚙️ Key Modifications
+The base version uses blastn for read alignment. However, its default low-complexity masking (DUST, by Morgulis et al., 10.1089/cmb.2006.13.1028) causes bisulfite-converted unmethylated reads to be filtered out, biasing the DNA methylation profile towards hypermethylation.
 
-    Alternatively, you can :
-> download AmpliMethProfilerEnv.yml
-> install environment
-      conda env create -f $PWD/AmpliMethProfilerEnv.yml   
-> check that everything went well
-      conda activate AmpliMethProfilerEnv
+We resolved this by integrating a --dust argument into the AmpliMethProfiler command line, allowing users to disable the DUST filtering:
 
-3) Run base AmpliMethProfilerCommand line with DUST module disabled.  
-An example is provided at: https://github.com/LabBrainAgeing/AmpliMethProfiler_RepetitiveElements/blob/main/testData/Amplimeth_command.sh
+bash
+Copia
+Modifica
+--dust no
+This argument uses the _dust_ property from Bio.Blast.Applications.NcbiblastnCommandline.
+
+🚀 Installation & Usage
+1. Clone the Repository
+bash
+Copia
+Modifica
+git clone https://github.com/LabBrainAgeing/AmpliMethProfiler_RepetitiveElements.git
+cd AmpliMethProfiler_RepetitiveElements/AmpliMethProfiler
+2. Set Up the Environment
+Option A: Follow the original setup guide
+🔗 https://sourceforge.net/projects/amplimethprofiler/
+
+Option B: Use our Conda environment
+
+bash
+Copia
+Modifica
+# Download and create the environment
+conda env create -f $PWD/AmpliMethProfilerEnv.yml
+
+# Activate it
+conda activate AmpliMethProfilerEnv
+3. Run AmpliMethProfiler with DUST Disabled
+Use the --dust no flag when running the tool.
+
+📄 Example command script:
+🔗 Amplimeth_command.sh
+
+🧠 Citation
+Please cite the original paper:
+
+Scala, G. et al. "AmpliMethProfiler: a pipeline for the analysis of DNA methylation profiles of targeted bisulfite sequencing of amplicons." BMC Bioinformatics, 2016.
+10.1186/s12859-016-1380-3
