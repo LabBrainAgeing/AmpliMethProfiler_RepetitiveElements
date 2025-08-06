@@ -5,10 +5,6 @@
 > 📌 For installation and usage of the **base version**, please refer to the original repository:  
 > 🔗 https://sourceforge.net/projects/amplimethprofiler/
 
----
-
-## 🔬 About This Fork
-
 Our group optimized **AmpliMethProfiler** to analyze DNA methylation in **Repetitive Elements (RE)** such as:
 
 - LINE-1  
